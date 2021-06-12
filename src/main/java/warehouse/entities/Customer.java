@@ -2,6 +2,7 @@ package warehouse.entities;
 
 import javax.persistence.*;
 
+//comment
 @Entity
 @Table(name = "customers")
 public class Customer {
@@ -54,13 +55,4 @@ public class Customer {
         this.phone = phone;
     }
 
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", phone='" + phone + '\'' +
-                '}';
-    }
 }
