@@ -5,6 +5,10 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
+import warehouse.entities.Customer;
+import warehouse.entities.Order;
+import warehouse.entities.Product;
+import warehouse.entities.Supplier;
 
 import java.util.List;
 import java.util.Properties;
@@ -12,7 +16,7 @@ import java.util.Properties;
 import static java.util.Arrays.asList;
 
 public class DataBaseSession {
-    private static final List<Class> ENTITIES = asList(Author.class, Book.class, Review.class);
+    private static final List<Class> ENTITIES = asList(Customer.class, Order.class, Product.class, Supplier.class);
 
     private static final String DB_USERNAME = "root";
     private static final String DB_PASSWORD = "L13nux123";
@@ -26,7 +30,7 @@ public class DataBaseSession {
 
     private static SessionFactory sessionFactory;
 
-    private DbSessionHolder() {
+    private DataBaseSession() {
     }
 
     public static SessionFactory getInstance() {
