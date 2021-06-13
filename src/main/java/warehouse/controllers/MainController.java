@@ -27,24 +27,24 @@ public class MainController implements Initializable {
 
     @FXML
     public void switchCustomerPanel(ActionEvent event) throws Exception {
-        Pane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/userInterface/customer/customer_list.fxml")));
+        Pane pane = FXMLLoader.load((Objects.requireNonNull(getClass().getResource("/userInterface/customer/customer_list.fxml"))));
         content.setLeft(pane);
     }
 
     @FXML
     public void switchProductPanel(ActionEvent event) throws Exception {
-        Pane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/userInterface/customer/product_list.fxml")));
+        Pane pane = FXMLLoader.load((Objects.requireNonNull(getClass().getResource("/userInterface/customer/product_list.fxml"))));
         content.setLeft(pane);
     }
     @FXML
     public void switchSupplierPanel(ActionEvent event) throws Exception {
-        Pane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/userInterface/customer/supplier_list.fxml")));
+        Pane pane = FXMLLoader.load((Objects.requireNonNull(getClass().getResource("/userInterface/customer/supplier_list.fxml"))));
         content.setLeft(pane);
     }
 
     @FXML
     public void switchOrderPanel(ActionEvent event) throws Exception {
-        Pane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/userInterface/customer/order_list.fxml")));
+        Pane pane = FXMLLoader.load((Objects.requireNonNull(getClass().getResource("/userInterface/customer/order_list.fxml"))));
         content.setLeft(pane);
     }
 

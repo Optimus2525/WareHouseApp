@@ -16,6 +16,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CustomerController implements Initializable {
+
     private final CustomerRepository customerRepository = new CustomerRepository();
 
     @FXML
@@ -23,8 +24,8 @@ public class CustomerController implements Initializable {
 
     @FXML
     private void addCustomer(ActionEvent event) {
-        AddCustomerController addCustomerController = (AddCustomerController) ViewLoader.load(getClass()
-                .getResource("/userInterface/customer/add_customer.fxml"), "Add customer");
+        AddCustomerController addCustomerController = (AddCustomerController) ViewLoader
+                .load(getClass().getResource("/userInterface/customer/add_customer.fxml"), "Add customer");
         addCustomerController.addPostOperationCallback(this::populateTable);
 
     }
@@ -82,4 +83,5 @@ public class CustomerController implements Initializable {
         list.addAll(customerRepository.findAll());
         customerTableView.setItems(list);
     }
+
 }

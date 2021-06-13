@@ -22,6 +22,7 @@ public class WarehouseApplication extends Application {
     }
 
 
+
     public static void main(String[] args) {
         DataBaseSession.getInstance();
         launch(args);
