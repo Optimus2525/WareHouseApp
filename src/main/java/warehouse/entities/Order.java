@@ -20,14 +20,14 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
-    private Customer customer;
+    private Customer customers;
 
     public Order() {
     }
 
     public Order(Product product, Customer customer) {
         this.product = product;
-        this.customer = customer;
+        this.customers = customer;
     }
 
     public Product getProduct() {
@@ -39,10 +39,10 @@ public class Order {
     }
 
     public Customer getCustomer() {
-        return customer;
+        return customers;
     }
 
     public void setCustomer(Customer customer) {
-        this.customer = customer;
+        this.customers = customer;
     }
 }
