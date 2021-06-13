@@ -2,7 +2,6 @@ package warehouse.entities;
 
 import javax.persistence.*;
 
-//comment
 @Entity
 @Table(name = "customers")
 public class Customer {
