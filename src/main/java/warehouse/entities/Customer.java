@@ -21,7 +21,7 @@ public class Customer {
     @Column
     private String phone;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customers")
     private Set<Order> orders = new HashSet<>();
 
     public Customer() {

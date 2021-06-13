@@ -9,6 +9,11 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column
+    private Long customer_id;
+    @Column
+    private Long product_id;
+
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;

@@ -20,6 +20,10 @@ public class Product {
     @Column
     private Double price;
 
+    @ManyToOne
+    @JoinColumn(name = "suppliers_id")
+    private Supplier suppliers;
+
     @OneToMany(mappedBy = "product")
     private Set<Order> orders = new HashSet<>();
 
@@ -83,4 +87,15 @@ public class Product {
                 ", price=" + price +
                 '}';
     }
+
+//    @ManyToOne
+//    private Supplier manyToOne;
+//
+//    public Supplier getManyToOne() {
+//        return manyToOne;
+//    }
+//
+//    public void setManyToOne(Supplier manyToOne) {
+//        this.manyToOne = manyToOne;
+//    }
 }

@@ -1,6 +1,8 @@
 package warehouse.entities;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "suppliers")
@@ -12,6 +14,9 @@ public class Supplier {
     private String name;
     private String address;
     private String phone;
+
+    @OneToMany(mappedBy = "suppliers")
+    private Set<Product> product = new HashSet<>();
 
     public Supplier() {
     }
@@ -63,4 +68,15 @@ public class Supplier {
                 ", phone='" + phone + '\'' +
                 '}';
     }
+
+//    @OneToMany
+//    private Set<Product> oneToMany;
+//
+//    public Set<Product> getOneToMany() {
+//        return oneToMany;
+//    }
+//
+//    public void setOneToMany(Set<Product> oneToMany) {
+//        this.oneToMany = oneToMany;
+//    }
 }
