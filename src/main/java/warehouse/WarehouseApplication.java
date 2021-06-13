@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import org.hibernate.type.TrueFalseType;
 import warehouse.configuration.DataBaseSession;
 
 import java.util.Objects;

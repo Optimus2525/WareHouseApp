@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import warehouse.entities.Customer;
+import warehouse.repository.CrudRepository;
 import warehouse.repository.CustomerRepository;
 
 import java.net.URL;
@@ -82,7 +83,7 @@ public class AddCustomerController implements Initializable {
         phone.clear();
     }
     private void closeStage() {
-        Stage stage = (Stage) rootPane.getScene().getWindow();
+        Stage stage = new Stage();
         stage.close();
     }
 }
