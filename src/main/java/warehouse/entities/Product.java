@@ -11,10 +11,17 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column
     private String name;
+    @Column
     private Integer quantity;
+    @Column
     private String unit;
+    @Column
     private Double price;
+
+    @OneToMany(mappedBy = "product")
+    private Set<Order> orders = new HashSet<>();
 
     public Product() {
     }
