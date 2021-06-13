@@ -6,9 +6,25 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="warehouse.controllers.MainController"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="library.controllers.MainController">
+    <children>
+        <BorderPane fx:id="content" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 
+            <center>
+                <Pane prefHeight="400.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+            </center>
+
+            <left>
+                <AnchorPane fx:id="navigation" prefHeight="400.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Button id="books" fx:id="ordersButton" defaultButton="true" layoutX="11.0" layoutY="12.0" onAction="#switchPanel" prefHeight="30.0" prefWidth="180.0" text="All Orders" />
+                        <Button id="books" fx:id="productsButton" defaultButton="true" layoutX="11.0" layoutY="52.0" onAction="#switchPanel" prefHeight="30.0" prefWidth="180.0" text="Products" />
+                        <Button id="books" fx:id="customersButton" defaultButton="true" layoutX="11.0" layoutY="93.0" onAction="#switchPanel" prefHeight="30.0" prefWidth="180.0" text="Customers" />
+                        <Button id="books" fx:id="suppliersButton" defaultButton="true" layoutX="11.0" layoutY="133.0" onAction="#switchPanel" prefHeight="30.0" prefWidth="180.0" text="Suppliers" />
+                    </children>
+                </AnchorPane>
+            </left>
+
+        </BorderPane>
+    </children>
 </AnchorPane>
