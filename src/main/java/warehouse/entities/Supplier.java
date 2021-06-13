@@ -16,7 +16,7 @@ public class Supplier {
     private String phone;
 
     @OneToMany(mappedBy = "suppliers")
-    private Set<Product> product = new HashSet<>();
+    private final Set<Product> product = new HashSet<>();
 
     public Supplier() {
     }
@@ -69,14 +69,4 @@ public class Supplier {
                 '}';
     }
 
-//    @OneToMany
-//    private Set<Product> oneToMany;
-//
-//    public Set<Product> getOneToMany() {
-//        return oneToMany;
-//    }
-//
-//    public void setOneToMany(Set<Product> oneToMany) {
-//        this.oneToMany = oneToMany;
-//    }
 }

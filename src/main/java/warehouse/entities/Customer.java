@@ -10,7 +10,7 @@ import java.util.Set;
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column
     private String name;
@@ -22,7 +22,7 @@ public class Customer {
     private String phone;
 
     @OneToMany(mappedBy = "customers")
-    private Set<Order> orders = new HashSet<>();
+    private final Set<Order> orders = new HashSet<>();
 
     public Customer() {
     }
@@ -55,5 +55,16 @@ public class Customer {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", orders=" + orders +
+                '}';
     }
 }

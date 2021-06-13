@@ -45,4 +45,15 @@ public class Order {
     public void setCustomer(Customer customer) {
         this.customers = customer;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", customer_id=" + customer_id +
+                ", product_id=" + product_id +
+                ", product=" + product +
+                ", customers=" + customers +
+                '}';
+    }
 }

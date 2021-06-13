@@ -25,7 +25,7 @@ public class Product {
     private Supplier suppliers;
 
     @OneToMany(mappedBy = "product")
-    private Set<Order> orders = new HashSet<>();
+    private final Set<Order> orders = new HashSet<>();
 
     public Product() {
     }
@@ -88,14 +88,4 @@ public class Product {
                 '}';
     }
 
-//    @ManyToOne
-//    private Supplier manyToOne;
-//
-//    public Supplier getManyToOne() {
-//        return manyToOne;
-//    }
-//
-//    public void setManyToOne(Supplier manyToOne) {
-//        this.manyToOne = manyToOne;
-//    }
 }
