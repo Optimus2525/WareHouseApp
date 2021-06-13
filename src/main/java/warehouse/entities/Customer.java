@@ -9,9 +9,17 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column
     private String name;
+
+    @Column
     private String address;
+
+    @Column
     private String phone;
+
+    @OneToMany(mappedBy = "customer")
+    private Set<Order> orders = new HashSet<>();
 
     public Customer() {
     }
@@ -20,14 +28,6 @@ public class Customer {
         this.name = name;
         this.address = address;
         this.phone = phone;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -53,5 +53,4 @@ public class Customer {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
 }

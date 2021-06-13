@@ -7,52 +7,37 @@ import javax.persistence.*;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long Id;
+    private Long id;
 
-    @Column(name = "customer_id")
-    private long customerId;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
 
-    @Column(name = "product_id")
-    private long productId;
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 
     public Order() {
     }
 
-    public Order(long customerId, long productId) {
-        this.customerId = customerId;
-        this.productId = productId;
+    public Order(Product product, Customer customer) {
+        this.product = product;
+        this.customer = customer;
     }
 
-    public long getId() {
-        return Id;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setId(long id) {
-        Id = id;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
-    public long getCustomerId() {
-        return customerId;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCustomerId(long customerId) {
-        this.customerId = customerId;
-    }
-
-    public long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(long productId) {
-        this.productId = productId;
-    }
-
-    @Override
-    public String toString() {
-        return "Order{" +
-                "Id=" + Id +
-                ", customerId=" + customerId +
-                ", productId=" + productId +
-                '}';
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }
