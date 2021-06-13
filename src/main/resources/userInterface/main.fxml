@@ -2,60 +2,25 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="warehouse.controllers.MainController">
-    <BorderPane fx:id="content" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0"
-                AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="warehouse.controllers.MainController">
+    <BorderPane fx:id="content" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 
         <center>
             <Pane prefHeight="394.0" prefWidth="1123.0" BorderPane.alignment="CENTER">
                 <BorderPane.margin>
-                    <Insets bottom="3.0" left="3.0" right="3.0" top="3.0"/>
+                    <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                 </BorderPane.margin>
-                <TextField accessibleRole="TEXT_AREA" alignment="TOP_CENTER" disable="true" editable="false"
-                           layoutX="7.0" layoutY="6.0" opacity="0.5" prefHeight="33.0" prefWidth="551.0"
-                           style="-fx-font: x;" text="The Warehouse">
-                    <font>
-                        <Font size="38.0"/>
-                    </font>
-                    <effect>
-                        <Lighting>
-                            <light>
-                                <Light.Distant>
-                                    <color>
-                                        <Color red="0.23026315867900848" green="0.6101973652839661"
-                                               blue="0.9210526347160339"/>
-                                    </color>
-                                </Light.Distant>
-                            </light>
-                            <bumpInput>
-                                <Glow/>
-                            </bumpInput>
-                        </Lighting>
-                    </effect>
-                    <BorderPane.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-                    </BorderPane.margin>
-                </TextField>
             </Pane>
         </center>
 
         <left>
             <AnchorPane fx:id="navigation" prefHeight="400.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                <Button fx:id="ordersButton" layoutX="11.0" layoutY="50.0"
-                        onAction="#switchOrderPanel" prefHeight="30.0" prefWidth="180.0" text="All Orders"/>
-                <Button fx:id="productsButton" layoutX="11.0" layoutY="139.0"
-                        onAction="#switchProductPanel" prefHeight="30.0" prefWidth="180.0" text="Products"/>
-                <Button fx:id="suppliersButton" layoutX="11.0" layoutY="317.0"
-                        onAction="#switchSupplierPanel" prefHeight="30.0" prefWidth="180.0" text="Suppliers"/>
-                <Button fx:id="customersButton" layoutX="11.0" layoutY="231.0"
-                        onAction="#switchCustomerPanel" prefHeight="30.0" prefWidth="180.0" text="Customers"/>
+                <Button fx:id="ordersButton" layoutX="11.0" layoutY="50.0" onAction="#switchOrderPanel" prefHeight="30.0" prefWidth="180.0" text="All Orders" />
+                <Button fx:id="productsButton" layoutX="11.0" layoutY="139.0" onAction="#switchProductPanel" prefHeight="30.0" prefWidth="180.0" text="Products" />
+                <Button fx:id="suppliersButton" layoutX="11.0" layoutY="317.0" onAction="#switchSupplierPanel" prefHeight="30.0" prefWidth="180.0" text="Suppliers" />
+                <Button fx:id="customersButton" layoutX="11.0" layoutY="231.0" onAction="#switchCustomerPanel" prefHeight="30.0" prefWidth="180.0" text="Customers" />
             </AnchorPane>
         </left>
 
