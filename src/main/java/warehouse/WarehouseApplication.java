@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import warehouse.configuration.DataBaseSession;
+import warehouse.entities.Customer;
+import warehouse.repository.CustomerRepository;
 
 public class WarehouseApplication extends Application {
 
@@ -19,8 +21,15 @@ public class WarehouseApplication extends Application {
 
     public static void main(String[] args) {
         DataBaseSession.getInstance();
-        launch(args);
+        Customer customer = new Customer();
+        customer.setAddress("Lauvas iela");
+        customer.setName("Laima");
+        customer.setPhone("+37123455667");
+        CustomerRepository customerRepository = new CustomerRepository();
+        customerRepository.save(customer);
+//        launch(args);
         DataBaseSession.shutdown();
+
     }
 
 

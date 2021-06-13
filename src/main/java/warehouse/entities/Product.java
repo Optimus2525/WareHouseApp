@@ -21,7 +21,7 @@ public class Product {
     private Double price;
 
     @ManyToOne
-    @JoinColumn(name = "suppliers_id")
+    @JoinColumn(name = "suppliers_id", insertable = false, updatable = false)
     private Supplier suppliers;
 
     @OneToMany(mappedBy = "product")
