@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class CrudRepository<T> {
+public  abstract class CrudRepository<T> {
     public void save(T entity) {
         Transaction transaction = null;
         try (Session session = openSession()) {
@@ -56,6 +56,10 @@ public class CrudRepository<T> {
             ex.printStackTrace();
             return null;
         }
+    }
+
+    public void merge(T entity) {
+        runInTransaction((session) -> session.merge(entity));
     }
 
     public void delete(T entity) {

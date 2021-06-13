@@ -48,14 +48,14 @@
 
         <left>
             <AnchorPane fx:id="navigation" prefHeight="400.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                <Button id="books" fx:id="ordersButton" defaultButton="true" layoutX="11.0" layoutY="50.0"
-                        onAction="#switchPanel" prefHeight="30.0" prefWidth="180.0" text="All Orders"/>
-                <Button id="books" fx:id="productsButton" defaultButton="true" layoutX="11.0" layoutY="139.0"
-                        onAction="#switchPanel" prefHeight="30.0" prefWidth="180.0" text="Products"/>
-                <Button id="books" fx:id="customersButton" defaultButton="true" layoutX="11.0" layoutY="231.0"
-                        onAction="#switchPanel" prefHeight="30.0" prefWidth="180.0" text="Customers"/>
-                <Button id="books" fx:id="suppliersButton" defaultButton="true" layoutX="11.0" layoutY="317.0"
-                        onAction="#switchPanel" prefHeight="30.0" prefWidth="180.0" text="Suppliers"/>
+                <Button id="orders" fx:id="ordersButton" defaultButton="true" layoutX="11.0" layoutY="50.0"
+                        onAction="#switchOrderPanel" prefHeight="30.0" prefWidth="180.0" text="All Orders"/>
+                <Button id="products" fx:id="productsButton" defaultButton="true" layoutX="11.0" layoutY="139.0"
+                        onAction="#switchProductPanel" prefHeight="30.0" prefWidth="180.0" text="Products"/>
+                <Button id="customers" fx:id="customersButton" defaultButton="true" layoutX="11.0" layoutY="231.0"
+                        onAction="#switchCustomerPanel" prefHeight="30.0" prefWidth="180.0" text="Customers"/>
+                <Button id="suppliers" fx:id="suppliersButton" defaultButton="true" layoutX="11.0" layoutY="317.0"
+                        onAction="#switchSupplierPanel" prefHeight="30.0" prefWidth="180.0" text="Suppliers"/>
             </AnchorPane>
         </left>
 
