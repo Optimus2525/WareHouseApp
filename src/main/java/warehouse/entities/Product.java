@@ -1,8 +1,19 @@
 package warehouse.entities;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
 
 @Entity
 @Table(name = "products")
@@ -11,81 +22,46 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @Column
     private String name;
+
+    @Column(name="unit_id")
+    private Integer unitId;
+
+    @Column(name="supplier_id")
+    private Integer supplierId;
+
     @Column
-    private Integer quantity;
+    private Double unitPrice;
+
     @Column
-    private String unit;
-    @Column
-    private Double price;
+    private Integer unitsInStock;
 
     @ManyToOne
-    @JoinColumn(name = "suppliers_id", insertable = false, updatable = false)
+    @JoinColumn(name = "supplier_id", insertable = false, updatable = false)
     private Supplier suppliers;
 
+    @ManyToOne
+    @JoinColumn(name = "unit_id", insertable = false, updatable = false)
+    private Unit units;
+
     @OneToMany(mappedBy = "product")
-    private final Set<Order> orders = new HashSet<>();
+    private Set<Cart> carts = new HashSet<>();
 
-    public Product() {
-    }
-
-    public Product(String name, Integer quantity, String unit, Double price) {
+    public Product(String name,
+                   Integer unitId,
+                   Integer supplierId,
+                   Double unitPrice,
+                   Integer unitsInStock,
+                   Supplier suppliers,
+                   Unit units) {
         this.name = name;
-        this.quantity = quantity;
-        this.unit = unit;
-        this.price = price;
+        this.unitId = unitId;
+        this.supplierId = supplierId;
+        this.unitPrice = unitPrice;
+        this.unitsInStock = unitsInStock;
+        this.suppliers = suppliers;
+        this.units = units;
     }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
-    public String getUnit() {
-        return unit;
-    }
-
-    public void setUnit(String unit) {
-        this.unit = unit;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", quantity=" + quantity +
-                ", unit='" + unit + '\'' +
-                ", price=" + price +
-                '}';
-    }
-
 }

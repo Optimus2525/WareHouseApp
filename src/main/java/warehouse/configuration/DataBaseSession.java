@@ -5,10 +5,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
-import warehouse.entities.Customer;
-import warehouse.entities.Order;
-import warehouse.entities.Product;
-import warehouse.entities.Supplier;
+import warehouse.entities.*;
 
 import java.util.List;
 import java.util.Properties;
@@ -16,12 +13,13 @@ import java.util.Properties;
 import static java.util.Arrays.asList;
 
 public class DataBaseSession {
-    private static final List<Class> ENTITIES = asList(Customer.class, Order.class, Product.class, Supplier.class);
+    private static final List<Class> ENTITIES = asList(Customer.class, Order.class,
+            Product.class, Supplier.class, Unit.class, Cart.class);
 
     private static final String DB_USERNAME = "root";
     private static final String DB_PASSWORD = "591096Im25@@";
 
-    private static final String DB_NAME = "warehouse";
+    private static final String DB_NAME = "warehouse_main";
     private static final String DB_URL = "jdbc:mysql://localhost:3306/" + DB_NAME + "?useSSL=false&serverTimezone=UTC";
     private static final String DB_DRIVER = "com.mysql.jdbc.Driver";
 
