@@ -59,7 +59,7 @@ public class CustomerController implements Initializable {
     }
 
     private void configureTable() {
-        TableColumn<Customer, Long> column1 = new TableColumn<>("Id");
+        TableColumn<Customer, Integer> column1 = new TableColumn<>("Id");
         column1.setCellValueFactory(new PropertyValueFactory<>("id"));
 
         TableColumn<Customer, String> column2 = new TableColumn<>("Name");

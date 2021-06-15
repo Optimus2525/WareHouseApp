@@ -18,10 +18,11 @@ import java.util.Set;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
-    @Column(name="customer_id")
-    private Long customerId;
+    @ManyToOne
+    @JoinColumn(name = "customer_id", insertable = false, updatable = false)
+    private Customer customers;
 
     @Column
     private Date orderDate;
@@ -32,18 +33,13 @@ public class Order {
     @Column
     private Boolean isPaid;
 
-    @ManyToOne
-    @JoinColumn(name = "customer_id", insertable = false, updatable = false)
-    private Customer customers;
-
     @OneToMany(mappedBy = "orders")
-    private final Set<Order> carts = new HashSet<>();
+    private Set<Cart> cart;
 
-    public Order(Long customer_id, Date orderDate, Double totalSum, Boolean isPaid, Customer customers) {
-        this.customer_id = customer_id;
+    public Order(Customer customers, Date orderDate, Double totalSum, Boolean isPaid) {
+        this.customers = customers;
         this.orderDate = orderDate;
         this.totalSum = totalSum;
         this.isPaid = isPaid;
-        this.customers = customers;
     }
 }

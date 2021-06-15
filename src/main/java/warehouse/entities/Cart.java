@@ -16,34 +16,22 @@ public class Cart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(name="order_id")
-    private Integer orderId;
-
-    @Column(name="product_id")
-    private Integer productId;
-
-    @Column
-    private Integer quantity;
+    private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "order_id", insertable = false, updatable = false)
+    @JoinColumn(name="order_id", insertable = false, updatable = false)
     private Order orders;
 
     @ManyToOne
     @JoinColumn(name = "product_id", insertable = false, updatable = false)
-    private Order products;
+    private Product product;
 
-    public Cart(Integer orderId,
-                Integer productId,
-                Integer quantity,
-                Order orders,
-                Order products) {
-        this.orderId = orderId;
-        this.productId = productId;
-        this.quantity = quantity;
+    @Column
+    private Integer quantity;
+
+    public Cart(Order orders, Product product, Integer quantity) {
         this.orders = orders;
-        this.products = products;
+        this.product = product;
+        this.quantity = quantity;
     }
 }

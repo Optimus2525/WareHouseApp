@@ -1,7 +1,6 @@
 package warehouse.entities;
 
 import lombok.*;
-
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -21,16 +20,18 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Integer id;
 
     @Column
     private String name;
 
-    @Column(name="unit_id")
-    private Integer unitId;
+    @ManyToOne
+    @JoinColumn(name = "unit_id", insertable = false, updatable = false)
+    private Unit units;
 
-    @Column(name="supplier_id")
-    private Integer supplierId;
+    @ManyToOne
+    @JoinColumn(name = "supplier_id", insertable = false, updatable = false)
+    private Supplier suppliers;
 
     @Column
     private Double unitPrice;
@@ -38,30 +39,20 @@ public class Product {
     @Column
     private Integer unitsInStock;
 
-    @ManyToOne
-    @JoinColumn(name = "supplier_id", insertable = false, updatable = false)
-    private Supplier suppliers;
-
-    @ManyToOne
-    @JoinColumn(name = "unit_id", insertable = false, updatable = false)
-    private Unit units;
-
     @OneToMany(mappedBy = "product")
-    private Set<Cart> carts = new HashSet<>();
+    private Set<Cart> cart = new HashSet<>();
 
     public Product(String name,
-                   Integer unitId,
-                   Integer supplierId,
+                   Unit units,
+                   Supplier suppliers,
                    Double unitPrice,
                    Integer unitsInStock,
-                   Supplier suppliers,
-                   Unit units) {
+                   Set<Cart> cart) {
         this.name = name;
-        this.unitId = unitId;
-        this.supplierId = supplierId;
+        this.units = units;
+        this.suppliers = suppliers;
         this.unitPrice = unitPrice;
         this.unitsInStock = unitsInStock;
-        this.suppliers = suppliers;
-        this.units = units;
+        this.cart = cart;
     }
 }

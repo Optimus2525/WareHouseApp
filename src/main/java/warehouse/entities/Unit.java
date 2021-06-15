@@ -1,7 +1,6 @@
 package warehouse.entities;
 
 import lombok.*;
-
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -19,7 +18,7 @@ public class Unit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Integer id;
 
     @Column
     private String unitName;
@@ -27,8 +26,7 @@ public class Unit {
     @OneToMany(mappedBy = "units")
     private Set<Product> product = new HashSet<>();
 
-    public Unit(String unitName,
-                Set<Product> product) {
+    public Unit(String unitName, Set<Product> product) {
         this.unitName = unitName;
         this.product = product;
     }

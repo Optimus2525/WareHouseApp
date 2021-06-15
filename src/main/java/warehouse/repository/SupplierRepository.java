@@ -17,7 +17,7 @@ public class SupplierRepository extends CrudRepository<Supplier> {
                         .executeUpdate());
     }
 
-    public Supplier findOne(Long id) {
+    public Supplier findOne(Integer id) {
         return super.findOne(id, Supplier.class);
     }
 

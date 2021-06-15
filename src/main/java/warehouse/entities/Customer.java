@@ -1,6 +1,5 @@
 package warehouse.entities;
 
-
 import lombok.*;
 import javax.persistence.*;
 import java.util.HashSet;
@@ -18,7 +17,7 @@ import java.util.Set;
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column
     private String name;
@@ -30,11 +29,9 @@ public class Customer {
     private String phone;
 
     @OneToMany(mappedBy = "customers")
-    private final Set<Order> orders = new HashSet<>();
+    private Set<Order> orders = new HashSet<>();
 
-    public Customer(String name,
-                    String address,
-                    String phone) {
+    public Customer(String name, String address, String phone) {
         this.name = name;
         this.address = address;
         this.phone = phone;

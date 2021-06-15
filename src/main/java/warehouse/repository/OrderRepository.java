@@ -11,14 +11,14 @@ public class OrderRepository extends CrudRepository<Order> {
     private static final String ID_PARAM = "ordersId";
     private static final String DELETE_QUERY = "delete from Order o where o.id = :" + ID_PARAM;
 
-    public void delete(Long id) {
+    public void delete(Integer id) {
         runInTransaction((session) ->
                 session.createQuery(DELETE_QUERY)
                         .setParameter(ID_PARAM, id)
                         .executeUpdate());
     }
 
-    public Order findOne(Long id) {
+    public Order findOne(Integer id) {
         return super.findOne(id, Order.class);
     }
 
