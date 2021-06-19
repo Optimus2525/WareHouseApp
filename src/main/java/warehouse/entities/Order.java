@@ -22,7 +22,7 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name = "customer_id", insertable = false, updatable = false)
-    private Customer customers;
+    private Customer customer;
 
     @Column
     private Date orderDate;
@@ -36,10 +36,11 @@ public class Order {
     @OneToMany(mappedBy = "orders")
     private Set<Cart> cart;
 
-    public Order(Customer customers, Date orderDate, Double totalSum, Boolean isPaid) {
-        this.customers = customers;
+    public Order(Customer customer, Date orderDate, Double totalSum, Boolean isPaid, Set<Cart> cart) {
+        this.customer = customer;
         this.orderDate = orderDate;
         this.totalSum = totalSum;
         this.isPaid = isPaid;
+        this.cart = cart;
     }
 }

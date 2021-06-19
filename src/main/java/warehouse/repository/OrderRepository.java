@@ -1,8 +1,6 @@
 package warehouse.repository;
 
-import warehouse.entities.Customer;
 import warehouse.entities.Order;
-
 import java.util.List;
 
 public class OrderRepository extends CrudRepository<Order> {
