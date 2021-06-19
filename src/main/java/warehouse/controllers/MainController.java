@@ -2,13 +2,12 @@ package warehouse.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
+import warehouse.entities.Order;
 
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
@@ -19,37 +18,15 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    private BorderPane content;
+    public AnchorPane root;
 
     @FXML
-    public void switchCustomerPanel(ActionEvent event) throws Exception {
-        Pane pane = FXMLLoader.load((Objects
-                .requireNonNull(getClass()
-                .getResource("/userInterface/customer/old_customer_list.fxml"))));
-        content.setLeft(pane);
-    }
+    private TableView<Order> table;
 
     @FXML
-    public void switchProductPanel(ActionEvent event) throws Exception {
-        Pane pane = FXMLLoader.load((Objects
-                .requireNonNull(getClass()
-                .getResource("/userInterface/customer/product_list.fxml"))));
-        content.setLeft(pane);
-    }
-    @FXML
-    public void switchSupplierPanel(ActionEvent event) throws Exception {
-        Pane pane = FXMLLoader.load((Objects
-                .requireNonNull(getClass()
-                .getResource("/userInterface/customer/supplier_list.fxml"))));
-        content.setLeft(pane);
+    public void handleButtonAction() {
+        System.out.println("Show Customers");
 
- }
-    @FXML
-    public void switchOrderPanel(ActionEvent event) throws Exception {
-        Pane pane = FXMLLoader.load((Objects
-                .requireNonNull(getClass()
-                .getResource("/userInterface/customer/order_list.fxml"))));
-        content.setLeft(pane);
     }
 
 }

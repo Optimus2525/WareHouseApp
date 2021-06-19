@@ -5,7 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import warehouse.controllers.MainController;
+import warehouse.controllers.old_MainController;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,7 +24,7 @@ public class ViewLoader {
             stage.setScene(new Scene(parent));
             stage.show();
         } catch (IOException ex) {
-            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(old_MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
         return controller;
     }

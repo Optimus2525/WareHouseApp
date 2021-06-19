@@ -8,19 +8,17 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import warehouse.configuration.DataBaseSession;
 
+import java.util.Objects;
+
 public class WarehouseApplication extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-//        Parent rootScene = FXMLLoader
-//                .load(Objects.
-//                        requireNonNull(getClass()
-//                                .getResource("/userInterface/main.fxml")));
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/userInterface/main.fxml"));
-        Parent rootScene = fxmlLoader.load();
+        Parent root = FXMLLoader.load(getClass().getResource("/userInterface/main.fxml"));
+
         stage.setTitle("The Best Warehouse Application in The World ");
-        stage.setScene(new Scene(rootScene));
+        stage.setScene(new Scene(root));
         stage.show();
     }
 
