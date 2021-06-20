@@ -5,21 +5,20 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import org.hibernate.Session;
+import javafx.stage.Stage;
 import warehouse.controllers.customers.AddCustomerController;
 import warehouse.controllers.view.ViewLoader;
 import warehouse.entities.Customer;
 import warehouse.entities.Order;
 import warehouse.repository.OrderRepository;
 
-import javax.persistence.*;
 import java.net.URL;
 import java.util.Date;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
@@ -38,6 +37,8 @@ public class MainController implements Initializable {
     private TableColumn<Order, Double> colTotal;
     @FXML
     private TableColumn<Order, Boolean> colIsPaid;
+    @FXML
+    public Button btnExit;
 
     @FXML
     private TableView<Order> tblOrders;
@@ -50,11 +51,11 @@ public class MainController implements Initializable {
     }
 
     private void configureTable() {
-        colId.setCellValueFactory(new PropertyValueFactory<Order, Integer>("id"));
-        colCustomer.setCellValueFactory(new PropertyValueFactory<Order, Customer>("customers"));
-        colDate.setCellValueFactory(new PropertyValueFactory<Order, Date>("orderDate"));
-        colTotal.setCellValueFactory(new PropertyValueFactory<Order, Double>("totalSum"));
-        colIsPaid.setCellValueFactory(new PropertyValueFactory<Order, Boolean>("isPaid"));
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colCustomer.setCellValueFactory(new PropertyValueFactory<>("customer"));
+        colDate.setCellValueFactory(new PropertyValueFactory<>("orderDate"));
+        colTotal.setCellValueFactory(new PropertyValueFactory<>("totalSum"));
+        colIsPaid.setCellValueFactory(new PropertyValueFactory<>("isPaid"));
     }
 
     private void populateTable() {
@@ -69,6 +70,8 @@ public class MainController implements Initializable {
                 .load(getClass().getResource("/userInterface/customer/add_customer.fxml"), "Add Customer");
         controller.addPostOperationCallback(this::populateTable);
     }
+
+    //TODO: Need to change button action methods names
     @FXML
     public void addCustomer(ActionEvent event) {
         System.out.println("Add Customer");
@@ -78,8 +81,8 @@ public class MainController implements Initializable {
         System.out.println("Add Supplier");
     }
     @FXML
-    public void addProduct(ActionEvent event) {
-        System.out.println("Add Product");
+    public void viewProducts(ActionEvent event) {
+        System.out.println("View Products");
     }
     @FXML
     public void addUnit(ActionEvent event) {
@@ -87,7 +90,8 @@ public class MainController implements Initializable {
     }
     @FXML
     public void exitProgram(ActionEvent event) {
-        System.out.println("Exit Program");
+        Stage stage = (Stage) btnExit.getScene().getWindow();
+        stage.close();
     }
 
 }

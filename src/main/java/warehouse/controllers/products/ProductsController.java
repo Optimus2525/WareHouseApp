@@ -2,14 +2,17 @@ package warehouse.controllers.products;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import warehouse.entities.Product;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import warehouse.entities.*;
 import warehouse.repository.ProductRepository;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -18,45 +21,64 @@ public class ProductsController implements Initializable {
     private final ProductRepository productRepository = new ProductRepository();
 
     @FXML
-    private TableView<Product> productsTableView;
+    public AnchorPane apProducts;
+    @FXML
+    private TableColumn<Product, Integer> colId;
+    @FXML
+    private TableColumn<Product, String> colProductName;
+    @FXML
+    private TableColumn<Product, Unit> colUnit;
+    @FXML
+    private TableColumn<Product, Integer> colInStock;
+    @FXML
+    private TableColumn<Product, Double> colUnitPrice;
+    @FXML
+    private TableColumn<Product, Supplier> colSupplier;
+
+    @FXML
+    private TableView<Product> tblProducts;
+
+    private void configureTable(){
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colProductName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colUnit.setCellValueFactory(new PropertyValueFactory<>("units"));
+        colInStock.setCellValueFactory(new PropertyValueFactory<>("unitsInStock"));
+        colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
+        colSupplier.setCellValueFactory(new PropertyValueFactory<>("supliers"));
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println("Main controller initialized!!");
         configureTable();
         populateTable();
-    }
-
-    private void configureTable() {
-        TableColumn<Product, Integer> column1 = new TableColumn<>("Id");
-        column1.setCellValueFactory(new PropertyValueFactory<>("id"));
-
-        TableColumn<Product, String> column2 = new TableColumn<>("Product Name");
-        column2.setCellValueFactory(new PropertyValueFactory<>("name"));
-
-        TableColumn<Product, String> column3 = new TableColumn<>("Unit");
-        column3.setCellValueFactory(new PropertyValueFactory<>("unit"));
-
-        TableColumn<Product, String> column4 = new TableColumn<>("In Stock");
-        column4.setCellValueFactory(new PropertyValueFactory<>("inStock"));
-
-        TableColumn<Product, String> column5 = new TableColumn<>("Unit Price");
-        column5.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
-
-        TableColumn<Product, String> column6 = new TableColumn<>("Supplier");
-        column6.setCellValueFactory(new PropertyValueFactory<>("supplier"));
-
-        productsTableView.getColumns().add(column1);
-        productsTableView.getColumns().add(column2);
-        productsTableView.getColumns().add(column3);
-        productsTableView.getColumns().add(column4);
-        productsTableView.getColumns().add(column5);
-        productsTableView.getColumns().add(column6);
     }
 
     private void populateTable() {
         ObservableList<Product> list = FXCollections.observableArrayList();
         list.addAll(productRepository.findAll());
-        productsTableView.setItems(list);
+        tblProducts.setItems(list);
+    }
+
+    @FXML
+    public Button btnExitScene;
+
+    @FXML
+    public void editProduct(ActionEvent event) {
+        System.out.println("Edit Product");
+    }
+    @FXML
+    public void addProduct(ActionEvent event) {
+        System.out.println("Add Product");
+    }
+    @FXML
+    public void deleteProduct(ActionEvent event) {
+        System.out.println("Delete Product");
+    }
+    @FXML
+    public void exitScene(ActionEvent event) {
+        Stage stage = (Stage) btnExitScene.getScene().getWindow();
+        stage.close();
     }
 
 }

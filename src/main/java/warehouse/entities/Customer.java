@@ -2,8 +2,7 @@ package warehouse.entities;
 
 import lombok.*;
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Data
 @NoArgsConstructor
@@ -29,8 +28,8 @@ public class Customer {
     @Column
     private String phone;
 
-    //@OneToMany(mappedBy = "customers")
-    //private Set<Order> orders = new HashSet<>();
+    @OneToMany(mappedBy = "customers")
+    private Collection<Customer> customer;
 
     public Customer(String name, String address, String phone) {
         this.name = name;

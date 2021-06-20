@@ -20,8 +20,8 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "customer_id", insertable = false, updatable = false)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "customer_id", referencedColumnName="id")
     private Customer customer;
 
     @Column
@@ -34,13 +34,5 @@ public class Order {
     private Boolean isPaid;
 
     @OneToMany(mappedBy = "orders")
-    private Set<Cart> cart;
-
-    public Order(Customer customer, Date orderDate, Double totalSum, Boolean isPaid, Set<Cart> cart) {
-        this.customer = customer;
-        this.orderDate = orderDate;
-        this.totalSum = totalSum;
-        this.isPaid = isPaid;
-        this.cart = cart;
-    }
+    private Set<Cart> cart = new HashSet<>();
 }
