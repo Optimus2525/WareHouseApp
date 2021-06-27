@@ -1,6 +1,7 @@
 package warehouse.entities;
 
 import lombok.*;
+
 import javax.persistence.*;
 import java.util.*;
 
@@ -29,7 +30,7 @@ public class Customer {
     private String phone;
 
     @OneToMany(mappedBy = "customers")
-    private Collection<Customer> customer;
+    private Set<Order> orders = new HashSet<>();
 
     public Customer(String name, String address, String phone) {
         this.name = name;

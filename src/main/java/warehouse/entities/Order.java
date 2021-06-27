@@ -22,7 +22,7 @@ public class Order {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "customer_id", referencedColumnName="id")
-    private Customer customer;
+    private Customer customers;
 
     @Column
     private Date orderDate;
@@ -35,4 +35,14 @@ public class Order {
 
     @OneToMany(mappedBy = "orders")
     private Set<Cart> cart = new HashSet<>();
+
+    public Order(Date orderDate,
+                 Double totalSum,
+                 Boolean isPaid,
+                 Set<Cart> cart) {
+        this.orderDate = orderDate;
+        this.totalSum = totalSum;
+        this.isPaid = isPaid;
+        this.cart = cart;
+    }
 }

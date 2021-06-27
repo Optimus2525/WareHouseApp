@@ -15,7 +15,7 @@ import warehouse.repository.CustomerRepository;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CustomerController implements Initializable {
+public class CustomersController implements Initializable {
 
     private final CustomerRepository customerRepository = new CustomerRepository();
 
@@ -25,7 +25,7 @@ public class CustomerController implements Initializable {
     @FXML
     private void addCustomer(ActionEvent event) {
         AddCustomerController addCustomerController = (AddCustomerController) ViewLoader
-                .load(getClass().getResource("/userInterface/customer/add_customer.fxml"), "Add customer");
+                .load(getClass().getResource("/userInterface/customers/add_customer.fxml"), "Add customer");
         addCustomerController.addPostOperationCallback(this::populateTable);
 
     }
@@ -47,7 +47,7 @@ public class CustomerController implements Initializable {
             return;
         }
         AddCustomerController addCustomerController = (AddCustomerController) ViewLoader.load(getClass()
-                .getResource("/userInterface/customer/add_customer.fxml"), "Edit customer");
+                .getResource("/userInterface/customers/add_customer.fxml"), "Edit customer");
         addCustomerController.setEditable(customer);
         addCustomerController.addPostOperationCallback(this::populateTable);
     }

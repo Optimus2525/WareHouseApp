@@ -14,7 +14,7 @@ public class WarehouseApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        Parent root = FXMLLoader.load(getClass().getResource("/userInterface/main.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/userInterface/start.fxml"));
 
         stage.setTitle("No Doubt - I'm The Best Warehouse Application in The World ");
         stage.setScene(new Scene(root));

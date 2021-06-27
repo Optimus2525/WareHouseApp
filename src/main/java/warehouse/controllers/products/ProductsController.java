@@ -23,6 +23,9 @@ public class ProductsController implements Initializable {
     @FXML
     public AnchorPane apProducts;
     @FXML
+    private TableView<Product> tblProducts;
+
+    @FXML
     private TableColumn<Product, Integer> colId;
     @FXML
     private TableColumn<Product, String> colProductName;
@@ -35,8 +38,12 @@ public class ProductsController implements Initializable {
     @FXML
     private TableColumn<Product, Supplier> colSupplier;
 
-    @FXML
-    private TableView<Product> tblProducts;
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println("Products controller initialized!!");
+        configureTable();
+        populateTable();
+    }
 
     private void configureTable(){
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -44,14 +51,7 @@ public class ProductsController implements Initializable {
         colUnit.setCellValueFactory(new PropertyValueFactory<>("units"));
         colInStock.setCellValueFactory(new PropertyValueFactory<>("unitsInStock"));
         colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
-        colSupplier.setCellValueFactory(new PropertyValueFactory<>("supliers"));
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Main controller initialized!!");
-        configureTable();
-        populateTable();
+        colSupplier.setCellValueFactory(new PropertyValueFactory<>("suppliers"));
     }
 
     private void populateTable() {
@@ -62,6 +62,12 @@ public class ProductsController implements Initializable {
 
     @FXML
     public Button btnExitScene;
+    @FXML
+    public void exitScene(ActionEvent event) {
+        Stage stage = (Stage) btnExitScene.getScene().getWindow();
+        stage.close();
+    }
+
 
     @FXML
     public void editProduct(ActionEvent event) {
@@ -75,10 +81,6 @@ public class ProductsController implements Initializable {
     public void deleteProduct(ActionEvent event) {
         System.out.println("Delete Product");
     }
-    @FXML
-    public void exitScene(ActionEvent event) {
-        Stage stage = (Stage) btnExitScene.getScene().getWindow();
-        stage.close();
-    }
+
 
 }
