@@ -1,6 +1,7 @@
 package warehouse.entities;
 
 import lombok.*;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
@@ -21,7 +22,7 @@ public class Order {
     private int id;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "customer_id", referencedColumnName="id")
+    @JoinColumn(name = "customer_id", referencedColumnName = "id")
     private Customer customers;
 
     @Column
@@ -36,10 +37,8 @@ public class Order {
     @OneToMany(mappedBy = "orders")
     private Set<Cart> cart = new HashSet<>();
 
-    public Order(Date orderDate,
-                 Double totalSum,
-                 Boolean isPaid,
-                 Set<Cart> cart) {
+    public Order(Customer customers, Date orderDate, Double totalSum, Boolean isPaid, Set<Cart> cart) {
+        this.customers = customers;
         this.orderDate = orderDate;
         this.totalSum = totalSum;
         this.isPaid = isPaid;

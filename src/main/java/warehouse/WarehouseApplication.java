@@ -6,26 +6,22 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import warehouse.configuration.DataBaseSession;
-
 import java.util.Objects;
 
 public class WarehouseApplication extends Application {
 
     @Override
-    public void start(Stage stage) throws Exception {
-
-        Parent root = FXMLLoader.load(getClass().getResource("/userInterface/start.fxml"));
-
-        stage.setTitle("No Doubt - I'm The Best Warehouse Application in The World ");
-        stage.setScene(new Scene(root));
-        stage.show();
+    public void start(Stage primaryStage) throws Exception {
+        Parent rootScene = FXMLLoader.load(Objects.requireNonNull(getClass()
+                .getResource("/userInterface/start.fxml")));
+        primaryStage.setTitle("The Best Warehouse Application in The World");
+        primaryStage.setScene(new Scene(rootScene));
+        primaryStage.show();
     }
 
     public static void main(String[] args) {
-        // TODO - remove comments
         DataBaseSession.getInstance();
         launch(args);
         DataBaseSession.shutdown();
-
     }
 }
